@@ -406,17 +406,13 @@ AlertActionRecommendationRepository
 ActionRecommendationRepositoryNew
 ActionTypeRepository
 ActionEventTypeRepository
-AlertEventTypeRepository
-QuestionnaireEventTypeRepository
-QuestionnaireRepository
-IncidentRepository
 ```
 
 Important local ownership correction:
 
 ```text
-Questionnaire<Suffix> used by Actions flow is Actions-owned unless code evidence proves otherwise.
-Incident<Suffix> used by Actions flow is Actions-owned unless code evidence proves otherwise.
+Questionnaire<Suffix> used by Actions flow is NOT Actions-owned.
+Incident<Suffix> used by Actions flow is NOT Actions-owned.
 ```
 
 ### 7.5 Actions-Owned Data / Payload / Response / Filter / Sort Types
