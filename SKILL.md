@@ -1,6 +1,6 @@
 ---
 name: actions-refactor
-version: 0.1.1
+version: 0.1.2
 description: |
   Refactors Actions code one controller flow at a time into the dedicated `domains/actions` package.
 
@@ -58,7 +58,7 @@ Preserve behavior.
 Move known Actions-owned files.
 Keep foreign files where they are.
 Wrap cross-domain calls with dumb forwarding wrappers only.
-Record anything uncertain or deferred in '.cursor/plans/actions-refactor/actions-refactor-review.jsonl'.
+Record anything uncertain or deferred in actions-refactor-review.jsonl.
 ```
 
 Definitions:
@@ -171,7 +171,7 @@ Do not perform these changes during this skill:
 - no dependency or build-file changes unless required to restore compilation and explicitly approved
 ```
 
-If any of these look useful, record a structured follow-up item in `.cursor/plans/actions-refactor/state/actions-refactor-review.jsonl` instead of doing it.
+If any of these look useful, record a structured follow-up item in `actions-refactor-review.jsonl` instead of doing it.
 
 The first pass should leave better boundaries, not a surprise architecture migration dressed as “cleanup”.
 
@@ -282,7 +282,7 @@ AUDIT_DIR="$STATE_DIR/audits"
 PATCH_DIR="$STATE_DIR/patches"
 TMP_DIR="$STATE_DIR/tmp"
 LOG_FILE="$STATE_DIR/runs.jsonl"
-REVIEW_FILE="actions-refactor-review.jsonl"
+REVIEW_FILE="$STATE_DIR/actions-refactor-review.jsonl"
 
 mkdir -p "$AUDIT_DIR" "$PATCH_DIR" "$TMP_DIR"
 touch "$LOG_FILE"
