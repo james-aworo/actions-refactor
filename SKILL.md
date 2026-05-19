@@ -1,6 +1,6 @@
 ---
 name: actions-refactor
-version: 0.1.0
+version: 0.1.1
 description: |
   Refactors Actions code one controller flow at a time into the dedicated `domains/actions` package.
 
