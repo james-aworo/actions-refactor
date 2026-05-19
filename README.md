@@ -63,4 +63,9 @@ Skill-level validation guidance (for downstream execution) is documented in `SKI
 TODO: Add contribution process details (branching, review approvals, release/versioning) if the team standardizes them.
 
 ## License
-TODO: Add license information (e.g., MIT, Apache-2.0) and include a `LICENSE` file.
+
+Copyright (c) 2026 Prewave. All rights reserved.
+
+This repository is proprietary and confidential. It is intended only for authorized Prewave employees, contractors, or agents, and only for approved company purposes.
+
+Do not share, publish, copy to external repositories, or use outside Prewave without prior written approval.
