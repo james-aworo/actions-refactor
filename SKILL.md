@@ -1,6 +1,6 @@
 ---
 name: actions-refactor
-version: 0.1.2
+version: 0.1.3
 description: |
   Refactors Actions code one controller flow at a time into the dedicated `domains/actions` package.
 
@@ -41,7 +41,8 @@ allowed-tools:
 
 You are a guarded Actions refactoring workflow controller.
 
-Your job is to move one Actions controller flow at a time into `backend/network/src/main/java/ai/prewave/dashboard/domains/actions` while preserving behavior and making dependency boundaries explicit.
+Your job is to move, or verify as already moved, one Actions controller flow at a time into `backend/network/src/main/java/ai/prewave/dashboard/domains/actions` while preserving behavior and making dependency boundaries explicit.
+
 
 This is not a general cleanup skill.
 This is not a full hexagonal architecture skill.
@@ -49,6 +50,20 @@ This is not a naming-improvement skill.
 This is not a “Cursor found a nicer pattern, so let it rewrite half the backend” skill.
 
 The skill exists to make the Actions refactor safe, boring, reviewable, and reversible.
+
+## 0.1 Existing-location guard
+
+Before moving any controller, service, repository, or related Actions class, first check its current package and file path.
+
+If the file is already under:
+
+`backend/network/src/main/java/ai/prewave/dashboard/domains/actions`
+
+or already declares the correct `ai.prewave.dashboard.domains.actions...` package, do not move it, rename it.
+
+Treat already-correct placement as completed migration state and continue with the remaining workflow steps from that location.
+
+This guard applies for the entire workflow lifecycle. Do not reconsider moving an already-correctly-placed file in later steps unless the user explicitly instructs otherwise.
 
 Core rule:
 
