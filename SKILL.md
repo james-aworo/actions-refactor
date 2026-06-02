@@ -73,7 +73,7 @@ Preserve behavior.
 Move known Actions-owned files.
 Keep foreign files where they are.
 Wrap cross-domain calls with dumb forwarding wrappers only.
-Record anything uncertain or deferred in actions-refactor-review.jsonl.
+Record anything uncertain or deferred in review.jsonl.
 ```
 
 Definitions:
@@ -186,7 +186,7 @@ Do not perform these changes during this skill:
 - no dependency or build-file changes unless required to restore compilation and explicitly approved
 ```
 
-If any of these look useful, record a structured follow-up item in `actions-refactor-review.jsonl` instead of doing it.
+If any of these look useful, record a structured follow-up item in `review.jsonl` instead of doing it.
 
 The first pass should leave better boundaries, not a surprise architecture migration dressed as “cleanup”.
 
@@ -297,7 +297,7 @@ AUDIT_DIR="$STATE_DIR/audits"
 PATCH_DIR="$STATE_DIR/patches"
 TMP_DIR="$STATE_DIR/tmp"
 LOG_FILE="$STATE_DIR/runs.jsonl"
-REVIEW_FILE="$STATE_DIR/actions-refactor-review.jsonl"
+REVIEW_FILE="$STATE_DIR/review.jsonl"
 
 mkdir -p "$AUDIT_DIR" "$PATCH_DIR" "$TMP_DIR"
 touch "$LOG_FILE"
@@ -401,7 +401,7 @@ Notes:
 ```text
 ActionPermissionEvaluator is deprecated.
 Preserve it and move it only if it is required by the selected flow.
-Record deprecated usage in actions-refactor-review.jsonl.
+Record deprecated usage in review.jsonl.
 Do not replace or remove it during this refactor.
 ```
 
@@ -861,7 +861,7 @@ When foreign code is changed to call an Actions use case:
 - preserve behavior
 - keep the call signature equivalent
 - avoid unrelated edits in the foreign package
-- record the touched foreign class/package in actions-refactor-review.jsonl
+- record the touched foreign class/package in review.jsonl
 - mark owner/team review as required
 ```
 
@@ -1094,7 +1094,7 @@ If an Actions controller method calls foreign dependencies directly, move that o
 
 Do not rename the service method.
 
-If the method name becomes less precise after moving orchestration, record a follow-up item in `actions-refactor-review.jsonl`.
+If the method name becomes less precise after moving orchestration, record a follow-up item in `review.jsonl`.
 
 Review item example:
 
@@ -1132,7 +1132,7 @@ Use machine-readable JSONL for follow-up tasks.
 File:
 
 ```text
-actions-refactor-review.jsonl
+review.jsonl
 ```
 
 Each line must be one valid JSON object.
@@ -1321,7 +1321,7 @@ Shape:
   "runId": "string",
   "timestamp": "ISO-8601",
   "auditPath": "string",
-  "reviewFile": "actions-refactor-review.jsonl",
+  "reviewFile": "review.jsonl",
   "patch": {
     "branch": "string",
     "selectedController": "string",
@@ -1377,13 +1377,13 @@ Use cases: <created/updated/skipped>
 Checks: <passed/skipped/failed with command names>
 Audit saved: <path>
 Patch report: <path>
-Review tasks: <count written to actions-refactor-review.jsonl>
+Review tasks: <count written to review.jsonl>
 ```
 
 If foreign owner review is required, include:
 
 ```text
-Owner review needed: yes, see actions-refactor-review.jsonl
+Owner review needed: yes, see review.jsonl
 ```
 
 ---
@@ -1514,7 +1514,7 @@ class SomeForeignDomainActionsUseCase(
 }
 ```
 
-Also append a `foreign_owner_review` task to `actions-refactor-review.jsonl`.
+Also append a `foreign_owner_review` task to `review.jsonl`.
 
 ---
 
@@ -1558,7 +1558,7 @@ The first version should stay in one `SKILL.md` file so the team can review and 
 ```
 
 Team: Super Compliance
-Maintainer: James
+Maintainer: James Aworo
 
 For workflow changes:
 
